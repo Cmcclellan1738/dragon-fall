@@ -36,9 +36,8 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function on_flap() {
 game.onUpdate(function on_update() {
     let y = dragon.y
     if (y > scene.screenHeight()) {
-        
+        die()
     } else if (y < 0) {
-        //  TODO Define Die 
         dragon.y = 0
     }
     
@@ -46,5 +45,6 @@ game.onUpdate(function on_update() {
 function die() {
     info.changeLifeBy(-1)
     dragon.y = scene.screenHeight() / 2
+    dragon.vy = 0
 }
 

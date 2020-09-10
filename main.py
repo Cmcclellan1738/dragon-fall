@@ -38,7 +38,7 @@ controller.A.on_event(ControllerButtonEvent.PRESSED, on_flap)
 def on_update():
     y = dragon.y
     if y > scene.screen_height():
-        pass # TODO Define Die 
+        die()
     elif y < 0:
         dragon.y = 0
 game.on_update(on_update)
@@ -46,6 +46,7 @@ game.on_update(on_update)
 def die():
     info.change_life_by(-1)
     dragon.y = scene.screen_height()/2  
+    dragon.vy = 0
 
 # Create the Chains
 
